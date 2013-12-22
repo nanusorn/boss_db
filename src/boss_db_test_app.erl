@@ -31,7 +31,7 @@ run_init() ->
     CacheEnable = get_env(cache_enable, false),
     DBOptions1 = [{adapter, list_to_atom(lists:concat([DBAdapter, ""]))},
         {cache_enable, CacheEnable}, {shards, DBShards}|DBOptions],
-
+    io:fwrite("Option : ~w~n",[DBOptions1]),
     boss_db:start(DBOptions1),
     boss_news:start().
 

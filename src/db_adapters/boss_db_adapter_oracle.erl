@@ -15,6 +15,9 @@ init(Options) ->
   DBUsername = proplists:get_value(db_username, Options, "system"),
   DBPassword = proplists:get_value(db_password, Options, ""),
   DBTns = proplists:get_value(db_tns, Options, ""),
+  io:fwrite("-==========================================-~n"),
+  io:fwrite("tns : ~s~n", [DBTns]),
+  io:fwrite("-==========================================-~n"),
   application:start(erloci),
 	OciPort = oci_port:start_link([{logging, true}]),
 	{OciPort, OciPort:get_session(DBTns, DBUsername, DBPassword)}.

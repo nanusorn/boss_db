@@ -39,3 +39,6 @@ test_db_mongodb:
 
 test_db_riak:
 	$(ERL) -pa ebin -pa deps/*/ebin -run boss_db_test start -config $(DB_CONFIG_DIR)/riak -noshell
+
+test_db_oracle:
+	$(ERL) -pa ebin -run boss_db_test start -config $(DB_CONFIG_DIR)/oracle -noshell
